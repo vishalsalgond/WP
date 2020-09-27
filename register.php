@@ -8,42 +8,37 @@
     <!-- Bootstrap CSS -->      
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
      <!-- Custom styles for this template-->
     <link href="static/register.css" rel="stylesheet" type="text/css"/>
     <link href="static/footer.css" rel="stylesheet" type="text/css"/>
 </head>
  
 <body>  
- 
+
+    <?php include 'navbar.php';?>
     <?php include 'validate.php';?>
  
- 
-    <div class="container d-inline"> <div class="text-center mt-5 mb-5">
-        <h1 style="color: skyblue"> Register</h1>
-    </div>
- 
         <div class="row ">
-            <div class="col-lg-7 mx-auto">
-                <div class="card mt-2 mx-auto p-4 bg-light">
+            <div class="col-lg-5 mx-auto">
+                <div class="card card-register mx-auto mt-5 mb-5">
+                    <div class="card-header bg-info text-light text-center"><h2 style="font-family: 'Pacifico', cursive;">Register</h2></div>
                     <div class="card-body bg-light">
                         <div class="container">
                             <form id="contact-form" role="form" method="POST" action='?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>' onsubmit="func1()">
                                 <div class="controls">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_name">Firstname <label style="color: red">*</label></label> 
+                                            <div class="form-group"> <label for="form_name">First Name<label style="color: red">*</label></label> 
                                                 <input class="form-control mb-2 mr-sm-4" type="text" id="input" name="fname" value="<?php echo $fname;?>"> 
-                                                <!-- Greets the user when he is typing his name -->
-                                                    <script>
-                                                      input.oninput = function() {
-                                                        result.innerHTML = "Hello " + input.value + ", Welcome to CollegeSearch!";
-                                                      };
-                                                    </script> </div>
+                                                 </div>
                                                     <span style="color: red;" class="error"><?php echo $fnameerror;?></span>
                                         </div>
  
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_lastname">Lastname <label style="color: red">*</label></label> 
+                                            <div class="form-group"> <label for="form_lastname">Last Name<label style="color: red">*</label></label> 
                                                 <input class="form-control mb-2 mr-sm-2" type="text" name="lname" value="<?php echo $lname;?>"> </div>
                                                 <span style="color: red;" class="error"><?php echo $lnameerr;?></span>
                                         </div>
@@ -63,73 +58,108 @@
                                         </div>
                                         
                                     </div>
+
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group"> <label for="form_email">Age <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="text" name="age" value="<?php echo $age;?>"> </div>
                                             <span style="color: red;" class="error"><?php echo $ageerr;?></span>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_email">CET Score <label style="color: red">*</label></label> 
-                                                <input class="form-control mb-2 mr-sm-2" id="input1" type="text" name="cet" value="<?php echo $cet;?>">
-                                                <!-- When CET score is more than 150, prints a message that user has high chances of getting a good college! -->
-                                                    <script>
-                                                      input1.oninput = function() {
-                                                        if(input1.value > 150) {
-                                                            result1.innerHTML = "Congratulations! You have very high chances of getting a good college."
-                                                        } else {
-                                                            result1.innerHTML = "";
-                                                        }
-                                                      };
-                                                    </script> </div>
-                                                <span style="color: red;" class="error"><?php echo $ceterr;?></span>
-                                        </div>
-                                        <div class="col">
-                                            <span  style="color: purple; font-size: 20px" id="result1"></span>
-                                        </div>
-                                    </div>
- 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_need">Your preferred branch <label style="color: red">*</label></label> <select id="branch" name="branch" class="form-control" required="required" data-error="Please specify your need.">
-                                                    <option value="COMP">COMP</option>
-                                                    <option value="IT">IT</option>
-                                                    <option value="EXTC">EXTC</option>
-                                                    <option value="MECH">MECH</option>
-                                                    <option value="MECH">ETRX</option>
+                                            <div class="form-group"> <label for="form_need">State<label style="color: red">*</label></label> <select id="branch" name="state" class="form-control" required="required" data-error="Please specify your need.">
+                                                <option value="Andhra Pradesh">State</option>
+                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                <option value="Assam">Assam</option>
+                                                <option value="Bihar">Bihar</option>
+                                                <option value="Chandigarh">Chandigarh</option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                                <option value="Daman and Diu">Daman and Diu</option>
+                                                <option value="Delhi">Delhi</option>
+                                                <option value="Lakshadweep">Lakshadweep</option>
+                                                <option value="Puducherry">Puducherry</option>
+                                                <option value="Goa">Goa</option>
+                                                <option value="Gujarat">Gujarat</option>
+                                                <option value="Haryana">Haryana</option>
+                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                <option value="Jharkhand">Jharkhand</option>
+                                                <option value="Karnataka">Karnataka</option>
+                                                <option value="Kerala">Kerala</option>
+                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                <option value="Maharashtra">Maharashtra</option>
+                                                <option value="Manipur">Manipur</option>
+                                                <option value="Meghalaya">Meghalaya</option>
+                                                <option value="Mizoram">Mizoram</option>
+                                                <option value="Nagaland">Nagaland</option>
+                                                <option value="Odisha">Odisha</option>
+                                                <option value="Punjab">Punjab</option>
+                                                <option value="Rajasthan">Rajasthan</option>
+                                                <option value="Sikkim">Sikkim</option>
+                                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                                <option value="Telangana">Telangana</option>
+                                                <option value="Tripura">Tripura</option>
+                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                <option value="Uttarakhand">Uttarakhand</option>
+                                                <option value="West Bengal">West Bengal</option>
                                                 </select> </div>
                                         </div>
                                     </div>
+
+
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group"> <label class="mb-3" for="form_email">CET Rank </label>
+                                                <input class="form-control mb-2 mr-sm-2" id="input1" type="text" name="cet" value="<?php echo $cet;?>">
+                                                </div>
+                                                <span style="color: red;" class="error"><?php echo $ceterr;?></span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group"> <label class="mb-3" for="form_email">JEE Main Rank </label><input class="form-control mb-2 mr-sm-2" type="text" name="age" value="<?php echo $age;?>"> </div>
+                                            <span style="color: red;" class="error"><?php echo $ageerr;?></span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group"> <label class="mb-3" for="form_email">JEE Advance Rank </label> <input class="form-control mb-2 mr-sm-2" type="text" name="age" value="<?php echo $age;?>"> </div>
+                                            <span style="color: red;" class="error"><?php echo $ageerr;?></span>
+                                        </div>
+                                    </div>
+
+                                    
  
-                                    <div class="row mb-3">
+                                    <div class="row">
                                         <div class="col-md-6">
-                                        Select Gender
-                                        <div class="form-check"> 
-                                            <input class="form-check-input" type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="Male">
-                                            <label class="form-check-label" for="exampleRadios1">
-                                                Male
-                                            </label>
+                                            <div class="form-group"> <label for="form_need">Category<label style="color: red">*</label></label> <select id="branch" name="state" class="form-control" required="required" data-error="Please specify your need.">
+                                                <option value="">Category</option>
+                                                    <option value="GEN">General</option>
+                                                    <option value="EWS">EWS</option>
+                                                    <option value="OBC">OBC (Non-creamy layer)</option>
+                                                    <option value="SC">SC</option>
+                                                    <option value="ST">ST</option>
+                                                    <option value="PwD">PwD</option>
+                                                </select> </div>
                                         </div>
-                                        <div class="form-check"> 
-                                            <input class="form-check-input"  type="radio" name="gender" <?php if (isset($gender) && $gender=="male") echo "checked";?> value="Female">
-                                            <label class="form-check-label" for="exampleRadios1">
-                                                Female
-                                            </label>
+                                        <div class="col-md-6">
+                                            <div class="form-group"> <label for="form_need">Gender<label style="color: red">*</label></label> <select id="branch" name="state" class="form-control" required="required" data-error="Please specify your need.">
+                                                <option value="">Gender</option>
+                                                    <option value="M">Male</option>
+                                                    <option value="F">Female</option>
+                                                    <option value="O">Other</option>
+                                                </select> </div>
                                         </div>
-                                        <div class="form-check"> 
-                                            <input class="form-check-input" type="radio" name="gender" <?php if (isset($gender) && $gender=="other") echo "checked";?> value="Other">
-                                            <label class="form-check-label" for="exampleRadios1">
-                                                Other
-                                            </label>
-                                        </div>
+                                        
                                     </div>
  
                                     </div>
  
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="form-group"> <label for="form_message">Address <label style="color: red">*</label></label> <textarea id="comment" name="comment" class="form-control" placeholder="Write your address here." rows="4" required="required"> <?php echo $comment;?></textarea> </div>
+                                            <div class="form-group"> <label for="form_email">Password <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="text" name="phone" value="<?php echo $phone;?>"> </div>
+                                            <span style="color: red;" class="error"><?php echo $phoneerr;?></span>
                                         </div>
-                                        <div class="col-md-12"> <input type="submit" name="submit" class="btn btn-success btn-send pt-2 btn-block " value="Submit"> </div>
+                                        <div class="col-md-12"> <input type="submit" name="submit" class="btn btn-success btn-send pt-2 btn-block mt-2" value="Submit"> </div>
                                     </div>
 
                                     <div>
@@ -146,11 +176,6 @@
  
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                    </div class="col-md-6">
-                        <div class="col-md-12 text-center mt-4">
-                            <a type="button" href="home.php" class="btn btn-info">Back to home</a>
                         </div>
                     </div>
                 </div> <!-- /.8 -->
