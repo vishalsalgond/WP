@@ -18,8 +18,8 @@
     <?php include 'validate.php';?>
  
  
-    <div class="container"> <div class=" text-center mt-5 mb-5">
-        <h1 style="color: skyblue">Register</h1>
+    <div class="container d-inline"> <div class="text-center mt-5 mb-5">
+        <h1 style="color: skyblue"> Register</h1>
     </div>
  
         <div class="row ">
@@ -31,7 +31,7 @@
                                 <div class="controls">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_name">Firstname *</label> 
+                                            <div class="form-group"> <label for="form_name">Firstname <label style="color: red">*</label></label> 
                                                 <input class="form-control mb-2 mr-sm-4" type="text" id="input" name="fname" value="<?php echo $fname;?>"> 
                                                 <!-- Greets the user when he is typing his name -->
                                                     <script>
@@ -43,7 +43,7 @@
                                         </div>
  
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_lastname">Lastname *</label> 
+                                            <div class="form-group"> <label for="form_lastname">Lastname <label style="color: red">*</label></label> 
                                                 <input class="form-control mb-2 mr-sm-2" type="text" name="lname" value="<?php echo $lname;?>"> </div>
                                                 <span style="color: red;" class="error"><?php echo $lnameerr;?></span>
                                         </div>
@@ -54,22 +54,22 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_email">Email *</label> <input class="form-control mb-2 mr-sm-2" type="text" name="email" value="<?php echo $email;?>"> </div>
+                                            <div class="form-group"> <label for="form_email">Email <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="text" name="email" value="<?php echo $email;?>"> </div>
                                             <span style="color: red;" class="error"><?php echo $emailerr;?></span>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_email">Contact Number *</label> <input class="form-control mb-2 mr-sm-2" type="text" name="phone" value="<?php echo $phone;?>"> </div>
+                                            <div class="form-group"> <label for="form_email">Contact Number <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="text" name="phone" value="<?php echo $phone;?>"> </div>
                                             <span style="color: red;" class="error"><?php echo $phoneerr;?></span>
                                         </div>
                                         
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_email">Age *</label> <input class="form-control mb-2 mr-sm-2" type="text" name="age" value="<?php echo $age;?>"> </div>
+                                            <div class="form-group"> <label for="form_email">Age <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="text" name="age" value="<?php echo $age;?>"> </div>
                                             <span style="color: red;" class="error"><?php echo $ageerr;?></span>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_email">CET Score *</label> 
+                                            <div class="form-group"> <label for="form_email">CET Score <label style="color: red">*</label></label> 
                                                 <input class="form-control mb-2 mr-sm-2" id="input1" type="text" name="cet" value="<?php echo $cet;?>">
                                                 <!-- When CET score is more than 150, prints a message that user has high chances of getting a good college! -->
                                                     <script>
@@ -90,7 +90,7 @@
  
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_need">Your preferred branch *</label> <select id="branch" name="branch" class="form-control" required="required" data-error="Please specify your need.">
+                                            <div class="form-group"> <label for="form_need">Your preferred branch <label style="color: red">*</label></label> <select id="branch" name="branch" class="form-control" required="required" data-error="Please specify your need.">
                                                     <option value="COMP">COMP</option>
                                                     <option value="IT">IT</option>
                                                     <option value="EXTC">EXTC</option>
@@ -127,7 +127,7 @@
  
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="form-group"> <label for="form_message">Address *</label> <textarea id="comment" name="comment" class="form-control" placeholder="Write your address here." rows="4" required="required"> <?php echo $comment;?></textarea> </div>
+                                            <div class="form-group"> <label for="form_message">Address <label style="color: red">*</label></label> <textarea id="comment" name="comment" class="form-control" placeholder="Write your address here." rows="4" required="required"> <?php echo $comment;?></textarea> </div>
                                         </div>
                                         <div class="col-md-12"> <input type="submit" name="submit" class="btn btn-success btn-send pt-2 btn-block " value="Submit"> </div>
                                     </div>
