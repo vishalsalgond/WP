@@ -1,118 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-     
-    <?php
-    // define variables and set to empty values
-    $fname = $email = $gender = $comment = $age = $branch = $lname = "";
-    $school = $cet = $phone = "";
  
-    $fnameerror = $brancherror = $phoneerr = $emailerr = $lnameerr = $ageerr = $ceterr = "";
- 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (empty($_POST["fname"])) {
-            $fnameerror = "Name is required!";
-        } 
-        else if (preg_match("/[^A-Za-z'-]/",$_POST['fname'] )) {
-            $fname = test_input($_POST["fname"]);
-            $fnameerror = "Name must contain alphabets only!";
-        } 
-        else {
-            $fname = test_input($_POST["fname"]);
-        }
- 
-        if (empty($_POST["branch"])) {
-            $brancherror = "Branch is required!";
-        } else {
-            $branch = test_input($_POST["branch"]);
-        }
- 
-        $pattern = "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^";  
-        if (empty($_POST["email"])) {
-            $emailerr = "Email cannot be empty";
-        }
-        else if(preg_match ($pattern, $email) ){
-           $email = test_input($_POST["email"]);
-           $emailerr = "Entered email is not valid!";
-        } 
-        else {
-            $email = test_input($_POST["email"]);
-        }
- 
-        if (empty($_POST["cet"])) {
-          $cet = "";
-        } 
-        else {
-          $cet = test_input($_POST["cet"]);
-          if($cet > 200) {
-            $ceterr = "CET Score must be less than 200!";
-          }
-        }
- 
- 
-        if (empty($_POST["age"])) {
-          $age = "";
-        } 
-        else {
-          $age = test_input($_POST["age"]);
-          if (! preg_match ("/^[0-9]*$/", $age) ) {
-            $ageerr = "Age must be number only.";
-          }
-        }
- 
-        if (empty($_POST["comment"])) {
-          $comment = "";
-        } else {
-          $comment = test_input($_POST["comment"]);
-        }
- 
-        if (empty($_POST["lname"])) {
-          $lnameerr = "Last name is reuired!";
-        }
-        else if (preg_match("/[^A-Za-z'-]/",$_POST['lname'] )) {
-            $lname = test_input($_POST["lname"]);
-            $lnameerr = "Name must contain alphabets only!";
-        }  
-        else {
-          $lname = test_input($_POST["lname"]);
-        }
- 
-        $length = strlen ($phone);
-        if (empty($_POST["phone"])) {
-          $phoneerr = "Enter a phone number!";
-        } 
-        else if(!preg_match ("/^[0-9]*$/", $phone) ){
-          $phone = test_input($_POST["phone"]);
-          $phoneerr = "Phone number must contain numbers only!";
-        } 
-        else if( $length < 10 or $length > 10) {
-           $phone = test_input($_POST["phone"]);
-           $phoneerr = "Phone number must be of length 10";
-        }
-        else {
-          $phone = test_input($_POST["phone"]);
-        }
- 
-        if (empty($_POST["gender"])) {
-          $gender = "";
-        } else {
-        $gender = test_input($_POST["gender"]);
-        }
-    }
- 
-    function test_input($data) {
-      $data = trim($data);
-      $data = stripslashes($data);
-      $data = htmlspecialchars($data);
-      return $data;
-    }
-    ?>
-    
-</body>
-</html>
+<?php
+// define variables and set to empty values
+$fname = $email = $gender = $password = $lname = $cet = $jee_main = $jee_adv = $phone = "";
+$state = $category = $gender = "";
+
+$fnameerror = $phoneerr = $emailerr = $lnameerr = $passworderr = $ceterr =  $jee_main_err = $jee_adv_err = "";
+$stateerr = $categoryerr = $gendererr = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+	// First Name Validation
+	$fname = test_input($_POST["fname"]);
+	if (preg_match("/[^A-Za-z'-]/", $fname)) {
+		$fnameerror = "Name must contain alphabets only!";
+	} 
+
+	
+
+	//Email Validation
+	$pattern = "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^";  
+	$email = test_input($_POST["email"]);
+	if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+		$emailerr = "Entered email is not valid!";
+	} 	
+	
+	
+
+	//Last Name Validation
+	$lname = test_input($_POST["lname"]);
+	if (preg_match("/[^A-Za-z'-]/", $lname)) {
+		$lnameerr = "Name must contain alphabets only!";
+	} 
+	
+		
+
+	//Phone Number Validation
+	$phone = test_input($_POST["phone"]);
+	$length = strlen ($phone);
+	if(!preg_match ("/^[0-9]*$/", $phone) ){
+		$phoneerr = "Phone number must contain numbers only!";
+	} 
+	else if( $length < 10 or $length > 10) {
+		$phoneerr = "Phone number must be of length 10";
+	}
+	
+	//Rank Validation
+	if(!empty($_POST["cet"])) {
+		$cet = test_input($_POST["cet"]);
+		if(!preg_match ("/^[0-9]*$/", $cet) ){
+			$ceterr = "Rank must contain numbers only!";
+		} 
+	}
+
+	if(!empty($_POST["jee_main"])) {
+		$jee_main = test_input($_POST["jee_main"]);
+		if(!preg_match ("/^[0-9]*$/", $jee_main) ){
+			$jee_main_err = "Rank must contain numbers only!";
+		} 
+	}
+
+	if(!empty($_POST["jee_adv"])) {
+		$jee_adv = test_input($_POST["cet"]);
+		if(!preg_match ("/^[0-9]*$/", $jee_adv) ){
+			$jee_adv_err = "Rank must contain numbers only!";
+		} 
+	}
+
+	//Password Validation
+	$password = test_input($_POST["password"]);
+	if (strlen($password) < 8) {
+		$passworderr = "Your Password Must Contain At Least 8 Characters!";
+	}
+	else if(!preg_match("#[0-9]+#", $password)) {
+		$passworderr = "Your Password Must Contain At Least 1 Number!";
+	}
+	else if(!preg_match("#[A-Z]+#", $password)) {
+		$passworderr = "Your Password Must Contain At Least 1 Capital Letter!";
+	}
+	
+}
+
+function test_input($data) {
+	$data = trim($data);
+	$data = stripslashes($data);
+	$data = htmlspecialchars($data);
+	return $data;
+}
+?>
+
+
  

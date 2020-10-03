@@ -32,14 +32,14 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group"> <label for="form_name">First Name<label style="color: red">*</label></label> 
-                                                <input class="form-control mb-2 mr-sm-4" type="text" id="input" name="fname" value="<?php echo $fname;?>"> 
+                                                <input class="form-control mb-2 mr-sm-4" type="text" id="input" name="fname" required="required" value="<?php echo $fname;?>"> 
                                                  </div>
                                                     <span style="color: red;" class="error"><?php echo $fnameerror;?></span>
                                         </div>
  
                                         <div class="col-md-6">
                                             <div class="form-group"> <label for="form_lastname">Last Name<label style="color: red">*</label></label> 
-                                                <input class="form-control mb-2 mr-sm-2" type="text" name="lname" value="<?php echo $lname;?>"> </div>
+                                                <input class="form-control mb-2 mr-sm-2" type="text" name="lname" required="required" value="<?php echo $lname;?>"> </div>
                                                 <span style="color: red;" class="error"><?php echo $lnameerr;?></span>
                                         </div>
                                         <div class="col">
@@ -49,11 +49,11 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_email">Email <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="text" name="email" value="<?php echo $email;?>"> </div>
+                                            <div class="form-group"> <label for="form_email">Email <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="email" required="required" name="email" value="<?php echo $email;?>"> </div>
                                             <span style="color: red;" class="error"><?php echo $emailerr;?></span>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_email">Contact Number <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="text" name="phone" value="<?php echo $phone;?>"> </div>
+                                            <div class="form-group"> <label for="form_phone">Contact Number <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="text" required="required" name="phone" value="<?php echo $phone;?>"> </div>
                                             <span style="color: red;" class="error"><?php echo $phoneerr;?></span>
                                         </div>
                                         
@@ -62,12 +62,8 @@
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_email">Age <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="text" name="age" value="<?php echo $age;?>"> </div>
-                                            <span style="color: red;" class="error"><?php echo $ageerr;?></span>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_need">State<label style="color: red">*</label></label> <select id="branch" name="state" class="form-control" required="required" data-error="Please specify your need.">
-                                                <option value="Andhra Pradesh">State</option>
+                                            <div class="form-group"> <label for="form_need">State<label style="color: red">*</label></label> <select id="state" name="state" class="form-control" required="required" data-error="Please specify your need.">
+                                                <option value="">State</option>
                                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                                                 <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -105,6 +101,7 @@
                                                 <option value="Uttarakhand">Uttarakhand</option>
                                                 <option value="West Bengal">West Bengal</option>
                                                 </select> </div>
+                                                <span style="color: red;" class="error"><?php echo $stateerr;?></span>
                                         </div>
                                     </div>
 
@@ -112,18 +109,22 @@
 
                                     <div class="row">
                                         <div class="col">
-                                            <div class="form-group"> <label class="mb-3" for="form_email">CET Rank </label>
+                                            <div class="form-group"> <label class="mb-3" for="form_cet">CET Rank </label>
                                                 <input class="form-control mb-2 mr-sm-2" id="input1" type="text" name="cet" value="<?php echo $cet;?>">
-                                                </div>
-                                                <span style="color: red;" class="error"><?php echo $ceterr;?></span>
+                                            </div>
+                                            <span style="color: red;" class="error"><?php echo $ceterr;?></span>
                                         </div>
                                         <div class="col">
-                                            <div class="form-group"> <label class="mb-3" for="form_email">JEE Main Rank </label><input class="form-control mb-2 mr-sm-2" type="text" name="age" value="<?php echo $age;?>"> </div>
-                                            <span style="color: red;" class="error"><?php echo $ageerr;?></span>
+                                            <div class="form-group"> <label class="mb-3" for="form_jeem">JEE Main Rank </label>
+                                                <input class="form-control mb-2 mr-sm-2" type="text" name="jee_main" value="<?php echo $jee_main;?>"> 
+                                            </div>
+                                            <span style="color: red;" class="error"><?php echo $jee_main_err;?></span>
                                         </div>
                                         <div class="col">
-                                            <div class="form-group"> <label class="mb-3" for="form_email">JEE Advance Rank </label> <input class="form-control mb-2 mr-sm-2" type="text" name="age" value="<?php echo $age;?>"> </div>
-                                            <span style="color: red;" class="error"><?php echo $ageerr;?></span>
+                                            <div class="form-group"> <label class="mb-3" for="form_jeea">JEE Advance Rank </label> 
+                                                <input class="form-control mb-2 mr-sm-2" type="text" name="jee_adv" value="<?php echo $jee_adv;?>"> 
+                                            </div>
+                                            <span style="color: red;" class="error"><?php echo $jee_adv_err;?></span>
                                         </div>
                                     </div>
 
@@ -131,7 +132,7 @@
  
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_need">Category<label style="color: red">*</label></label> <select id="branch" name="state" class="form-control" required="required" data-error="Please specify your need.">
+                                            <div class="form-group"> <label for="form_need">Category<label style="color: red">*</label></label> <select id="category" name="category" class="form-control" required="required" data-error="Please specify your need.">
                                                 <option value="">Category</option>
                                                     <option value="GEN">General</option>
                                                     <option value="EWS">EWS</option>
@@ -140,14 +141,16 @@
                                                     <option value="ST">ST</option>
                                                     <option value="PwD">PwD</option>
                                                 </select> </div>
+                                                <span style="color: red;" class="error"><?php echo $categoryerr;?></span>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_need">Gender<label style="color: red">*</label></label> <select id="branch" name="state" class="form-control" required="required" data-error="Please specify your need.">
+                                            <div class="form-group"> <label for="form_need">Gender<label style="color: red">*</label></label> <select id="gender" name="gender" class="form-control" required="required" data-error="Please specify your need.">
                                                 <option value="">Gender</option>
                                                     <option value="M">Male</option>
                                                     <option value="F">Female</option>
                                                     <option value="O">Other</option>
                                                 </select> </div>
+                                                <span style="color: red;" class="error"><?php echo $gendererr;?></span>
                                         </div>
                                         
                                     </div>
@@ -156,8 +159,8 @@
  
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="form-group"> <label for="form_email">Password <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="text" name="phone" value="<?php echo $phone;?>"> </div>
-                                            <span style="color: red;" class="error"><?php echo $phoneerr;?></span>
+                                            <div class="form-group"> <label for="form_password">Password <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="password" required="required" name="password" value="<?php echo $password;?>"> </div>
+                                            <span style="color: red;" class="error"><?php echo $passworderr;?></span>
                                         </div>
                                         <div class="col-md-12"> <input type="submit" name="submit" class="btn btn-success btn-send pt-2 btn-block mt-2" value="Submit"> </div>
                                     </div>
