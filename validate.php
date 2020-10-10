@@ -9,10 +9,13 @@ $stateerr = $categoryerr = $gendererr = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+	$validated = true;
+
 	// First Name Validation
 	$fname = test_input($_POST["fname"]);
 	if (preg_match("/[^A-Za-z'-]/", $fname)) {
 		$fnameerror = "Name must contain alphabets only!";
+		$validated = false;
 	} 
 
 	
@@ -22,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$email = test_input($_POST["email"]);
 	if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 		$emailerr = "Entered email is not valid!";
+		$validated = false;
 	} 	
 	
 	
@@ -30,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$lname = test_input($_POST["lname"]);
 	if (preg_match("/[^A-Za-z'-]/", $lname)) {
 		$lnameerr = "Name must contain alphabets only!";
+		$validated = false;
 	} 
 	
 		
@@ -39,9 +44,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$length = strlen ($phone);
 	if(!preg_match ("/^[0-9]*$/", $phone) ){
 		$phoneerr = "Phone number must contain numbers only!";
+		$validated = false;
 	} 
 	else if( $length < 10 or $length > 10) {
 		$phoneerr = "Phone number must be of length 10";
+		$validated = false;
 	}
 	
 	//Rank Validation
@@ -49,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$cet = test_input($_POST["cet"]);
 		if(!preg_match ("/^[0-9]*$/", $cet) ){
 			$ceterr = "Rank must contain numbers only!";
+			$validated = false;
 		} 
 	}
 
@@ -56,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$jee_main = test_input($_POST["jee_main"]);
 		if(!preg_match ("/^[0-9]*$/", $jee_main) ){
 			$jee_main_err = "Rank must contain numbers only!";
+			$validated = false;
 		} 
 	}
 
@@ -63,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$jee_adv = test_input($_POST["cet"]);
 		if(!preg_match ("/^[0-9]*$/", $jee_adv) ){
 			$jee_adv_err = "Rank must contain numbers only!";
+			$validated = false;
 		} 
 	}
 
@@ -70,12 +80,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$password = test_input($_POST["password"]);
 	if (strlen($password) < 8) {
 		$passworderr = "Your Password Must Contain At Least 8 Characters!";
+		$validated = false;
 	}
 	else if(!preg_match("#[0-9]+#", $password)) {
 		$passworderr = "Your Password Must Contain At Least 1 Number!";
+		$validated = false;
 	}
 	else if(!preg_match("#[A-Z]+#", $password)) {
 		$passworderr = "Your Password Must Contain At Least 1 Capital Letter!";
+		$validated = false;
 	}
 	
 }

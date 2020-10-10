@@ -1,5 +1,5 @@
 <?php
-    $database_name = "collegeSearch";
+    $database_name = "collegesearch";
     $mysql_username = "root";
     $mysql_password = "";
     $server_name = "localhost";
@@ -9,3 +9,4 @@
 
     $db = mysqli_connect($server_name, $mysql_username, $mysql_password, $database_name);
 ?>
+

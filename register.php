@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Register</title>
+    <title>CollegeSearch</title>
 
     <!-- Bootstrap CSS -->      
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
      <!-- Custom styles for this template-->
-    <link href="static/register.css" rel="stylesheet" type="text/css"/>
+    <link href="static/main.css" rel="stylesheet" type="text/css"/>
     <link href="static/footer.css" rel="stylesheet" type="text/css"/>
 </head>
  
@@ -20,25 +20,26 @@
 
     <?php include 'navbar.php';?>
     <?php include 'validate.php';?>
+    <?php include 'insert.php';?>
  
         <div class="row ">
             <div class="col-lg-5 mx-auto">
                 <div class="card card-register mx-auto mt-5 mb-5">
-                    <div class="card-header bg-info text-light text-center"><h2 style="font-family: 'Pacifico', cursive;">Register</h2></div>
+                    <div class="card-header bg-info text-light text-center"><h2>Register</h2></div>
                     <div class="card-body bg-light">
                         <div class="container">
-                            <form id="contact-form" role="form" method="POST" action='?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>' onsubmit="func1()">
+                            <form id="register-form" method="POST" action='register.php'>
                                 <div class="controls">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_name">First Name<label style="color: red">*</label></label> 
+                                            <div class="form-group"> <label>First Name<label style="color: red">*</label></label> 
                                                 <input class="form-control mb-2 mr-sm-4" type="text" id="input" name="fname" required="required" value="<?php echo $fname;?>"> 
-                                                 </div>
-                                                    <span style="color: red;" class="error"><?php echo $fnameerror;?></span>
+                                            </div>
+                                            <span style="color: red;" class="error"><?php echo $fnameerror;?></span>
                                         </div>
  
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_lastname">Last Name<label style="color: red">*</label></label> 
+                                            <div class="form-group"> <label>Last Name<label style="color: red">*</label></label> 
                                                 <input class="form-control mb-2 mr-sm-2" type="text" name="lname" required="required" value="<?php echo $lname;?>"> </div>
                                                 <span style="color: red;" class="error"><?php echo $lnameerr;?></span>
                                         </div>
@@ -49,11 +50,15 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_email">Email <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="email" required="required" name="email" value="<?php echo $email;?>"> </div>
+                                            <div class="form-group"> <label>Email <label style="color: red">*</label></label> 
+                                                <input class="form-control mb-2 mr-sm-2" type="email" required="required" name="email" value="<?php echo $email;?>"> 
+                                            </div>
                                             <span style="color: red;" class="error"><?php echo $emailerr;?></span>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_phone">Contact Number <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="text" required="required" name="phone" value="<?php echo $phone;?>"> </div>
+                                            <div class="form-group"> <label>Contact Number <label style="color: red">*</label></label> 
+                                                <input class="form-control mb-2 mr-sm-2" type="text" required="required" name="phone" value="<?php echo $phone;?>"> 
+                                            </div>
                                             <span style="color: red;" class="error"><?php echo $phoneerr;?></span>
                                         </div>
                                         
@@ -62,7 +67,7 @@
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_need">State<label style="color: red">*</label></label> <select id="state" name="state" class="form-control" required="required" data-error="Please specify your need.">
+                                            <div class="form-group"> <label>State<label style="color: red">*</label></label> <select id="state" name="state" class="form-control" required="required" data-error="Please specify your need.">
                                                 <option value="">State</option>
                                                 <option value="Andhra Pradesh">Andhra Pradesh</option>
                                                 <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
@@ -109,19 +114,19 @@
 
                                     <div class="row">
                                         <div class="col">
-                                            <div class="form-group"> <label class="mb-3" for="form_cet">CET Rank </label>
+                                            <div class="form-group"> <label class="mb-3">CET Rank </label>
                                                 <input class="form-control mb-2 mr-sm-2" id="input1" type="text" name="cet" value="<?php echo $cet;?>">
                                             </div>
                                             <span style="color: red;" class="error"><?php echo $ceterr;?></span>
                                         </div>
                                         <div class="col">
-                                            <div class="form-group"> <label class="mb-3" for="form_jeem">JEE Main Rank </label>
+                                            <div class="form-group"> <label class="mb-3">JEE Main Rank </label>
                                                 <input class="form-control mb-2 mr-sm-2" type="text" name="jee_main" value="<?php echo $jee_main;?>"> 
                                             </div>
                                             <span style="color: red;" class="error"><?php echo $jee_main_err;?></span>
                                         </div>
                                         <div class="col">
-                                            <div class="form-group"> <label class="mb-3" for="form_jeea">JEE Advance Rank </label> 
+                                            <div class="form-group"> <label class="mb-3">JEE Advance Rank </label> 
                                                 <input class="form-control mb-2 mr-sm-2" type="text" name="jee_adv" value="<?php echo $jee_adv;?>"> 
                                             </div>
                                             <span style="color: red;" class="error"><?php echo $jee_adv_err;?></span>
@@ -132,7 +137,7 @@
  
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_need">Category<label style="color: red">*</label></label> <select id="category" name="category" class="form-control" required="required" data-error="Please specify your need.">
+                                            <div class="form-group"> <label>Category<label style="color: red">*</label></label> <select id="category" name="category" class="form-control" required="required" data-error="Please specify your need.">
                                                 <option value="">Category</option>
                                                     <option value="GEN">General</option>
                                                     <option value="EWS">EWS</option>
@@ -144,7 +149,7 @@
                                                 <span style="color: red;" class="error"><?php echo $categoryerr;?></span>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group"> <label for="form_need">Gender<label style="color: red">*</label></label> <select id="gender" name="gender" class="form-control" required="required" data-error="Please specify your need.">
+                                            <div class="form-group"> <label>Gender<label style="color: red">*</label></label> <select id="gender" name="gender" class="form-control" required="required" data-error="Please specify your need.">
                                                 <option value="">Gender</option>
                                                     <option value="M">Male</option>
                                                     <option value="F">Female</option>
@@ -159,10 +164,12 @@
  
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="form-group"> <label for="form_password">Password <label style="color: red">*</label></label> <input class="form-control mb-2 mr-sm-2" type="password" required="required" name="password" value="<?php echo $password;?>"> </div>
+                                            <div class="form-group"> <label>Password <label style="color: red">*</label></label> 
+                                                <input class="form-control mb-2 mr-sm-2" type="password" required="required" name="password" value="<?php echo $password;?>"> 
+                                            </div>
                                             <span style="color: red;" class="error"><?php echo $passworderr;?></span>
                                         </div>
-                                        <div class="col-md-12"> <input type="submit" name="submit" class="btn btn-success btn-send pt-2 btn-block mt-2" value="Submit"> </div>
+                                        <div class="col-md-12"> <input type="submit" name="register" class="btn btn-success btn-send pt-2 btn-block mt-2" value="Submit"> </div>
                                     </div>
 
                                     <div>
@@ -202,14 +209,14 @@
      
  
     <script>
-        function func1() {
-            alert("Thank You for filling out the form, you have been successfully registered to CollegeSearch website!")
-        }
+        // function func1() {
+        //     alert("Thank You for filling out the form, you have been successfully registered to CollegeSearch website!")
+        // }
  
-        function showName(e){
-            result.innerHTML = "Hello " + input.value;
+        // function showName(e){
+        //     result.innerHTML = "Hello " + input.value;
       
-        }
+        // }
     </script>
  
     <br>
