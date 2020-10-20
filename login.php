@@ -18,9 +18,14 @@
  
 <body>  
 
-    <?php include 'navbar.php';?>
+    <?php include 'const/navbar.php'; ?>
 
     <?php
+        $success = "";
+        if(isset($_GET['change_password']) && $_GET['change_password'] == 'ok') {
+            $success = "Password was changed successfully. Please Login with new password.";
+        } 
+
         if(isset($_POST["login"])) {
             require 'connect.php';
 
@@ -46,9 +51,6 @@
                     $_SESSION['category'] = $row['category'];
                     $_SESSION['gender'] = $row['gender'];
                 }
-                echo "<script>
-                alert('You are logged in');
-                </script>";
                 echo '<script>window.location.href="home.php";</script>';
             }
             else
@@ -67,6 +69,9 @@
                     <div class="card-header bg-info text-light text-center"><h2>Sign In</h2></div>
                     <div class="card-body bg-light">
                         <div class="container">
+                            <div>
+                                <h5 class="text-success mb-2"><?php echo $success; ?></h5>
+                            </div>
                             <form id="login-form" method="POST" action='login.php'>
                                 
 								<div class="row">
@@ -109,22 +114,9 @@
     <div>
      
  
-    <script>
-        function func1() {
-            alert("Thank You for filling out the form, you have been successfully registered to CollegeSearch website!")
-        }
- 
-        function showName(e){
-            result.innerHTML = "Hello " + input.value;
-      
-        }
-    </script>
- 
     <br>
- 
-    
-    
-    
+
+    <?php include 'const/bootstrap_script.php'; ?>
  
 </body>
 </html>
