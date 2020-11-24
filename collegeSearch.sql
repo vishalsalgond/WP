@@ -12,3 +12,22 @@ CREATE TABLE users (
     gender varchar(1) NOT NULL,
     password varchar(255) NOT NULL
 );
+
+
+CREATE TABLE college (
+    id varchar(255) PRIMARY KEY NOT NULL,
+    name varchar(255) NOT NULL,
+    address varchar(255) NOT NULL,
+    institute_fee varchar(255) NOT NULL,
+    mode_of_admission varchar(255) NOT NULL,
+    highest_package int(255) NOT NULL,
+    average_package int(255) NOT NULL,
+    computer_engineering int(255) NOT NULL,
+    mechanical_engineering int(255) NOT NULL,
+    electrical_engineering int(255) NOT NULL,
+    electronics_engineering int(255) NOT NULL,
+    chemical_engineering int(255) NOT NULL
+);
+
+
+
