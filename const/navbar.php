@@ -20,7 +20,7 @@
  
 <body>  
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
 	   <a class="navbar-brand" href="home.php">
 	    <img src="https://www.logodesign.net/images/letter-c-logo-tutorial.png" width="45" height="35" class="d-inline-block align-top" alt="">
 	    CollegeSearch
@@ -35,7 +35,7 @@
 	        <a class="nav-link" href="home.php">Home</a>
 	      </li>
 	      <li class="nav-item active">
-	        <a class="nav-link" href="#">Colleges</a>
+	        <a class="nav-link" href="find_college.php">Find College</a>
 	      </li>
 	    </ul>
 	    <form class="form-inline my-2 mr-4 my-lg-0" method="POST" action="logout.php">
@@ -48,7 +48,6 @@
 					<div class="dropdown-menu">
 					
 						<a class="dropdown-item" href="profile.php">My Profile</a>
-						<a class="dropdown-item" href="#">My Wishlist</a>
 						<div class="dropdown-divider"></div>
 						<button class="btn dropdown-item" type="submit" name="logout">Log Out</button>
 					</div>
