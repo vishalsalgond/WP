@@ -5,9 +5,10 @@
 </head>
 <body>
 	<?php include 'const/navbar.php';  ?>
-	<div class="container py-3">
+	
 
 		<?php if(isset($_SESSION['logged_in'])) : ?>
+			<div class="container py-3">
 			<div class="mb-4">
 				<h1>Top Colleges</h1>
 			</div>
@@ -42,46 +43,50 @@
 				}
 				
 			?>	
-			</div>
+		</div>	
 		<?php else : ?>
-			<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-				<ol class="carousel-indicators">
-					<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-					<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-					<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-				</ol>
-				<div class="carousel-inner">
-					<div class="carousel-item active">
-					<img src="https://s.abcnews.com/images/Business/GTY_college_grads_jef_130625_16x9_1600.jpg" class="d-block w-100" alt="...">
-					<div class="carousel-caption d-none d-md-block">
-						<h5>Get Your Dream College</h5>
-						<p>Best place to find your dream college</p>
+
+			<div style="background-color:#F0F8FF;">
+				<div class="row py-5">
+					<div class="col-lg-7" style="margin: auto;">
+						<h1 class="display-2 text-center" style="color:#8A2BE2;"><b>Looking for your</b></h1>
+						<h1 class="display-2 text-center" style="color:#8A2BE2;"><b>dream college?</b></h1>
+						<div class="text-center">
+							<p class="text-center" style="font-size: 30px;">CollegeSearch is your one-stop destination.</p>
+							<a href="register.php" class="btn btn-info btn-lg" style="margin:auto;">Sign Up</a>
+						</div>
+						
 					</div>
-					</div>
-					<div class="carousel-item">
-					<img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" class="d-block w-100" alt="...">
-					<div class="carousel-caption d-none d-md-block">
-						<h5>Second slide label</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-					</div>
-					</div>
-					<div class="carousel-item">
-					<img src="..." class="d-block w-100" alt="...">
-					<div class="carousel-caption d-none d-md-block">
-						<h5>Third slide label</h5>
-						<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-					</div>
+					<div class="col-lg-5">
+						<img src="static/home.png" alt="" height="400px">
 					</div>
 				</div>
-				<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-				</div>
+				
+			</div>
+
+			<div class="container" style="margin-top:60px;margin-bottom:60px;">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="card bg-warning">
+						<div class="card-body">
+							<h5 class="card-title">Top Colleges in India</h5>
+							<p class="card-text">Get latest information about top colleges from India who take admission based on JEE Main/Advance, CET.</p>
+							<a href="#" class="btn btn-primary">Get Started</a>
+						</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="card bg-success text-light">
+						<div class="card-body">
+							<h5 class="card-title">See where you stand</h5>
+							<p class="card-text">Add your exam score/rank and check which colleges you are eligible for.</p>
+							<a href="#" class="btn btn-primary">Learn More</a>
+						</div>
+						</div>
+					</div>
+					</div>
+			</div>
+			
 
 		<?php endif; ?>
 		</div>
