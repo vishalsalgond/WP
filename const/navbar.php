@@ -29,7 +29,7 @@
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	  <div class="collapse navbar-collapse py-2" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
 	        <a class="nav-link" href="home.php">Home</a>
@@ -43,7 +43,7 @@
 				
 				<div class="btn-group mr-4">
 					<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Profile
+						<?php echo $_SESSION['fname']; ?>
 					</button>
 					<div class="dropdown-menu">
 					

@@ -77,24 +77,24 @@
 </style>
 </head>
 <body>
-	<?php include 'const/navbar.php';  ?>
+	<?php include 'const/navbar.php';  
+	include 'connect.php'; ?>
 	
 
 		<?php if(isset($_SESSION['logged_in'])) : ?>
 			<div class="container py-3">
 			<div class="mb-4">
-				<h1>Top Colleges</h1>
+				<h1>Explore Top Colleges</h1>
 			</div>
-			<div>
-					  <form action="searchResult.php" method="post">
-			<input type="text" placeholder="Search.." name="search">
-			<button type="submit"><i class="fa fa-search"></i></button>
-						</form>
+			<div class="my-4">
+				<form action="searchResult.php" method="post" class="form-inline my-3 my-lg-0">
+					<input class="form-control mr-sm-2" type="search" style="width:400px;" name="search" placeholder="Search for colleges" aria-label="Search">
+					<button class="btn btn-info my-3 my-sm-0" type="submit">Search</button>
+				</form>
 			</div>
 			
 			<div class="row row-cols-1 row-cols-md-2 pt-3">
 			<?php
-			include 'connect.php';
 				$query = "SELECT * FROM college";
 				if ($result = $conn->query($query)) {
 
