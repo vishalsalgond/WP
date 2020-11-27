@@ -51,7 +51,7 @@
                     $_SESSION['category'] = $row['category'];
                     $_SESSION['gender'] = $row['gender'];
                 }
-                echo '<script>window.location.href="home.php";</script>';
+                echo '<script>window.location.href="home.php?page=1";</script>';
             }
             else
             {

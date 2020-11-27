@@ -45,7 +45,7 @@
 
 		?>
 		</div>
-		<a href="home.php" class="btn btn-info">Go back to Home page</a>
+		<a href="home.php?page=1" class="btn btn-info">Go back to Home page</a>
 	</div>
 	
 

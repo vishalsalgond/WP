@@ -100,6 +100,7 @@
 			$result = mysqli_query($conn, $sql);
 			$number_of_results = mysqli_num_rows($result);
 			$number_of_pages = ceil($number_of_results/$results_per_page);
+
 			if (!isset($_GET['page'])) {
 						$page = 1;
 			} else {
@@ -127,14 +128,9 @@
 							</div>
 						</div>
 					</form>';
-
-
-
-}
-			
-			
-		
-					$result->free();
+				}
+	
+				$result->free();
 				
 				
 			?>	
@@ -142,11 +138,13 @@
 		
 
 				<?php
-				
-
-				for ($page=1;$page<=$number_of_pages;$page++) {
-					echo '<a href="home.php?page=' . $page . '">' . $page . '</a> ';
+				for ($page = 1; $page <= $number_of_pages; $page++) {
+					if($_GET['page'] != $page) {
+						echo '<a class="btn btn-info mb-5" href="home.php?page=' . $page . '">' . $page . '</a> ';
+					} else {
+						echo '<a type="button" class="btn btn-info mb-5 disabled" href="home.php?page=' . $page . '">' . $page . '</a> ';
 					}
+				}
 				?>		
 		<?php else : ?>
 
