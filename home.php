@@ -3,6 +3,11 @@
 <head>
 	<title>Home</title>
 	<style>
+	
+	.pagi{
+text-align:center;
+	}
+	
 * {box-sizing: border-box;}
 
 
@@ -136,7 +141,7 @@
 			?>	
 		</div>	
 		
-
+				<div class="pagi">
 				<?php
 				for ($page = 1; $page <= $number_of_pages; $page++) {
 					if($_GET['page'] != $page) {
@@ -145,7 +150,9 @@
 						echo '<a type="button" class="btn btn-info mb-5 disabled" href="home.php?page=' . $page . '">' . $page . '</a> ';
 					}
 				}
-				?>		
+				
+				?>	
+</div>				
 		<?php else : ?>
 
 			<div style="background-color:#F0F8FF;">
