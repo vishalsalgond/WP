@@ -95,11 +95,23 @@
 			
 			<div class="row row-cols-1 row-cols-md-2 pt-3">
 			<?php
-				$query = "SELECT * FROM college";
-				if ($result = $conn->query($query)) {
+			$results_per_page = 6;
+			$sql='SELECT * FROM college';
+			$result = mysqli_query($conn, $sql);
+			$number_of_results = mysqli_num_rows($result);
+			$number_of_pages = ceil($number_of_results/$results_per_page);
+			if (!isset($_GET['page'])) {
+						$page = 1;
+			} else {
+						$page = $_GET['page'];
+			}
 
-				/* fetch associative array */
-				while ($row = $result->fetch_assoc()) {
+
+			$this_page_first_result = ($page-1)*$results_per_page;
+			$sql='SELECT * FROM college LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
+			$result = mysqli_query($conn, $sql);
+
+				while($row = mysqli_fetch_array($result)) {
 					$img = 'static/colleges/'.$row['name'].'.jpg';
 					$location = $row['address'];
 					echo '<form action="GET">';
@@ -115,14 +127,27 @@
 							</div>
 						</div>
 					</form>';
-				}
 
-					/* free result set */
+
+
+}
+			
+			
+		
 					$result->free();
-				}
+				
 				
 			?>	
 		</div>	
+		
+
+				<?php
+				
+
+				for ($page=1;$page<=$number_of_pages;$page++) {
+					echo '<a href="home.php?page=' . $page . '">' . $page . '</a> ';
+					}
+				?>		
 		<?php else : ?>
 
 			<div style="background-color:#F0F8FF;">
